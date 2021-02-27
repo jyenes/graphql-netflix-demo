@@ -49,5 +49,6 @@ jobs:
       - run: |
           echo "starting e2e test using newman"
           cd e2e
+          npm i
           npm test
           echo "successfully finish e2e"
