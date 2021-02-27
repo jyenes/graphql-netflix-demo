@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "67ee9bfc-93c1-4657-a3aa-14935bc10bc1",
+		"name": "heroku-netflix-grapql-demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://data-domain-netflix-api.herokuapp.com/graphql",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(`Should get results from the query`, () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(pm.response.code).to.eql(200)",
+							"    pm.expect(response.data.errors).to.eql(undefined)",
+							"    pm.expect(response.data.shows).not.to.eql(undefined)",
+							"    pm.expect(response.data.shows.length).to.be.greaterThan(1)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{ \n    shows { \n        title \n        releaseYear \n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://data-domain-netflix-api.herokuapp.com/graphql",
+					"protocol": "https",
+					"host": [
+						"data-domain-netflix-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

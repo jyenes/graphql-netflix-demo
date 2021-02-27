@@ -1,0 +1,22 @@
+{
+  "name": "data-domain-netflix-api-e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.e2e.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jyenes/graphql-netflix-demo.git"
+  },
+  "author": "@jyenes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jyenes/graphql-netflix-demo/issues"
+  },
+  "homepage": "https://github.com/jyenes/graphql-netflix-demo#readme",
+  "dependencies": {
+    "newman": "^5.2.2"
+  }
+}

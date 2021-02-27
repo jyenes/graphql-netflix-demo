@@ -37,3 +37,17 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "data-domain-netflix-api" #Must be unique in Heroku
           heroku_email: "javier.alvarezyenes@servexternos.gruposantander.com"
+
+  e2e:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15
+      - run: |
+          echo "starting e2e test using newman"
+          cd e2e
+          npm test
+          echo "successfully finish e2e"
